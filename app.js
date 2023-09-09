@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
         "current_day": localDate.toLocaleDateString('en-EN', { weekday: 'long' }),
         "utc_time": localDate.toISOString(),
         "track": "backend",
-        "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-        "github_repo_url": "https://github.com/username/repo",
+        "github_file_url": "https://github.com/KING-JAJA/stageOne/blob/main/app.js",
+        "github_repo_url": "https://github.com/KING-JAJA/stageOne",
         "status_code": 200
       });
 });
@@ -26,8 +26,8 @@ app.get('/api', (req, res) => {
         "current_day": localDate.toLocaleDateString('en-EN', { weekday: 'long' }),
         "utc_time": localDate.toISOString(),
         "track": `${track || "backend"}`,
-        "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-        "github_repo_url": "https://github.com/username/repo",
+        "github_file_url": "https://github.com/KING-JAJA/stageOne/blob/main/app.js",
+        "github_repo_url": "https://github.com/KING-JAJA/stageOne",
         "status_code": 200
       });
 });

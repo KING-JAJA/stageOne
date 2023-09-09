@@ -32,10 +32,12 @@ app.get('/api', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running port 3000");
 })
 
 
 
 // https://docs.google.com/forms/d/e/1FAIpQLSdyExqRMAJKXMEaMblQ-YoYQ4t9M9VLnWeEkNr--XVCuFoQrw/viewform
+
+// SamuelJajaStageOne

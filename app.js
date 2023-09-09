@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;
     res.json({
-        "slack_name": `${name || "SamuelJaja"}`,
+        "slack_name": `${slack_name || "SamuelJaja"}`,
         "current_day": localDate.toLocaleDateString('en-EN', { weekday: 'long' }),
         "utc_time": localDate.toISOString(),
         "track": `${track || "backend"}`,

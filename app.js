@@ -11,16 +11,19 @@ let utc_time = localDate.toISOString().split('.')[0] + 'z';
 
 app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;
-    const status_code = res.statusCode;
+    const statusCode = res.statusCode;
+    const current_day = localDate.toLocaleDateString('en-EN', { weekday: 'long' });
+    const github_file_url = "https://github.com/KING-JAJA/stageOne/blob/main/app.js";
+    const github_repo_url = "https://github.com/KING-JAJA/stageOne";
 
     res.json({
-        "slack_name": `${slack_name || "SamuelJaja"}`,
-        "current_day": localDate.toLocaleDateString('en-EN', { weekday: 'long' }),
-        "utc_time": utc,
-        "track": `${track || "backend"}`,
-        "github_file_url": "https://github.com/KING-JAJA/stageOne/blob/main/app.js",
-        "github_repo_url": "https://github.com/KING-JAJA/stageOne",
-        "status_code": status_code
+        slack_name,
+        current_day,
+        utc_time,
+        track,
+        github_file_url,
+        github_repo_url,
+        status_code: statusCode
     });
 });
 

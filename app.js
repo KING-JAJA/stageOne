@@ -7,26 +7,7 @@ app.use(bodyparser.json());
 
 let localDate = new Date();
 
-// let utcTime = () => {
-//     // Get the current UTC time in milliseconds
-//     let currentUTCTime = Date.now();
-  
-//     // Get the UTC time in seconds (rounded down to the nearest second)
-//     let currentUTCSeconds = Math.floor(currentUTCTime / 1000);
-  
-//     // Get the local time in seconds (rounded down to the nearest second)
-//     let currentLocalSeconds = Math.floor(Date.now() / 1000);
-  
-//     // Calculate the time difference in seconds
-//     let timeDifference = currentLocalSeconds - currentUTCSeconds;
-
-//     if (Math.abs(timeDifference) <= 2) {
-//         // The current UTC time is within +/- 2 seconds of accuracy
-//         return new Date(currentUTCTime);
-//     }
-// }
-
-let utc = new Date().toISOString().slice(0, 16) + "Z";
+let utc = localDate.toISOString().split(".")[0] + "Z";
 
 app.get("/", (req, res) => {
     res.json({

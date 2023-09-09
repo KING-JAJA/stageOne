@@ -7,22 +7,12 @@ app.use(bodyparser.json());
 
 let localDate = new Date();
 
-let utc = localDate.toISOString().split(".")[0] + "Z";
-
-app.get("/", (req, res) => {
-    res.json({
-        "slack_name": "SamuelJaja",
-        "current_day": localDate.toLocaleDateString('en-EN', { weekday: 'long' }),
-        "utc_time": utc,
-        "track": "backend",
-        "github_file_url": "https://github.com/KING-JAJA/stageOne/blob/main/app.js",
-        "github_repo_url": "https://github.com/KING-JAJA/stageOne",
-        "status_code": 200
-      });
-});
+let utc_time = localDate.toISOString().split('.')[0] + 'z';
 
 app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;
+    const status_code = res.statusCode;
+
     res.json({
         "slack_name": `${slack_name || "SamuelJaja"}`,
         "current_day": localDate.toLocaleDateString('en-EN', { weekday: 'long' }),
@@ -30,7 +20,7 @@ app.get('/api', (req, res) => {
         "track": `${track || "backend"}`,
         "github_file_url": "https://github.com/KING-JAJA/stageOne/blob/main/app.js",
         "github_repo_url": "https://github.com/KING-JAJA/stageOne",
-        "status_code": 200
+        "status_code": status_code
     });
 });
 

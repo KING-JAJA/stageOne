@@ -26,7 +26,7 @@ let localDate = new Date();
 //     }
 // }
 
-let utc = new Date().toISOString().slice(0, 19) + "Z";
+let utc = new Date().toISOString().slice(0, 16) + "Z";
 
 app.get("/", (req, res) => {
     res.json({

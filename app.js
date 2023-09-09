@@ -29,13 +29,8 @@ app.get('/api', (req, res) => {
         "github_file_url": "https://github.com/KING-JAJA/stageOne/blob/main/app.js",
         "github_repo_url": "https://github.com/KING-JAJA/stageOne",
         "status_code": 200
-      });
+    });
 });
-
-app.get('/hello', (req, res) => {
-    const { name, track } = req.query;
-    res.send(`Hello ${name || 'stranger'}, ${track}`);
-  });
 
 app.listen(3000, () => {
     console.log("Server is running port 3000");

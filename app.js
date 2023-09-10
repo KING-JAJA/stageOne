@@ -6,33 +6,32 @@ const app = express();
 
 app.use(bodyparser.json());
 
-let localDate = new Date();
-
-//let utcTime = localDate.toISOString().split('.')[0] + 'Z';
-let utcTime = localDate.toISOString();
+//let localDate = new Date();
 
 
-let currentDate = moment.utc().format("YYYY-MM-DDTHH:mm:ss[Z]");
-//const  currentDay = moment.utc().format("dddd");
-
-//currentDate = currentDate.
-
-let utc_time = currentDate;
 
 app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;
+
+    const date = new Date();
+    const day = date.getDay();
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const today = days[day];
+
+    const githubUrl = 'https://github.com/KING-JAJA/stageOne.git';
+    const github_file_url = 'https://github.com/KING-JAJA/stageOne/blob/main/app.js';
+
     const statusCode = res.statusCode;
-    const current_day = localDate.toLocaleDateString('en-EN', { weekday: 'long' });
-    const github_file_url = "https://github.com/KING-JAJA/stageOne/blob/main/app.js";
-    const github_repo_url = "https://github.com/KING-JAJA/stageOne.git";
+
+    const utc_time = date.toISOString().split('.')[0] + 'Z';//new Date(date.setMilliseconds(0)).toISOString();
 
     res.json({
         slack_name,
-        current_day,
+        current_day: today,
         utc_time,
         track,
         github_file_url,
-        github_repo_url,
+        github_repo_url: githubUrl,
         status_code: statusCode
     });
 });

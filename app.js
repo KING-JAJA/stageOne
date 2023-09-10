@@ -12,24 +12,12 @@ let localDate = new Date();
 let utcTime = localDate.toISOString();
 
 
-//let currentDate = moment.utc().format("YYYY-MM-DDTHH:mm:ss[Z]");
+let currentDate = moment.utc().format("YYYY-MM-DDTHH:mm:ss[Z]");
 //const  currentDay = moment.utc().format("dddd");
 
 //currentDate = currentDate.
 
-// JSON data with a date string
-const jsonData = `{"date": "${utcTime}"}`;
-
-// Parse the JSON data
-const parsedData = JSON.parse(jsonData);
-
-// Access the date as a JavaScript Date object
-const dateObject = new Date(parsedData.date);
-
-// Now 'dateObject' is a JavaScript Date object
-//console.log(dateObject);
-
-let utc_time = dateObject;
+let utc_time = currentDate;
 
 app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;

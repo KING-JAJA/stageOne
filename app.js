@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyparser = require("body-parser");
+const moment = require("moment");
 
 const app = express();
 
@@ -7,7 +8,13 @@ app.use(bodyparser.json());
 
 let localDate = new Date();
 
-let utc_time = localDate.toISOString().split('.')[0] + 'z';
+//let utc_time = localDate.toISOString().split('.')[0] + 'Z';
+
+
+const currentDate = moment.utc().format("YYYY-MM-DDTHH:mm:ss[Z]");
+//const  currentDay = moment.utc().format("dddd");
+
+let utc_time = currentDate;
 
 app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;
@@ -28,7 +35,7 @@ app.get('/api', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log("Server is running port 3000");
+    console.log("Server is up and running");
 })
 
 

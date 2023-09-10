@@ -23,7 +23,7 @@ app.get('/api', (req, res) => {
     const statusCode = res.statusCode;
     const current_day = localDate.toLocaleDateString('en-EN', { weekday: 'long' });
     const github_file_url = "https://github.com/KING-JAJA/stageOne/blob/main/app.js";
-    const github_repo_url = "https://github.com/KING-JAJA/stageOne";
+    const github_repo_url = "https://github.com/KING-JAJA/stageOne.git";
 
     res.json({
         slack_name,
